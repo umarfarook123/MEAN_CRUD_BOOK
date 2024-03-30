@@ -1,0 +1,38 @@
+<form class="example-form" [formGroup]="bookform" (ngSubmit)="SaveBook()">
+  <mat-card>
+    <mat-card-content>
+
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Title" formControlName="title">
+      </mat-form-field>
+      
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Author </mat-label>
+        <input matInput placeholder="Author" formControlName="author">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Description </mat-label>
+        <input matInput placeholder="Description" formControlName="description">
+      </mat-form-field>
+
+     
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Publication Year</mat-label>
+        <input matInput placeholder="Publication Year" formControlName="pubYear">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>ISBN</mat-label>
+        <input matInput placeholder="ISBN" formControlName="ISBN">
+      </mat-form-field>
+
+    </mat-card-content>
+    <mat-card-footer>
+      <div class="example-button-row" style="margin: 2px">
+        <button mat-raised-button color="primary">Save</button> | <a (click)="closepopup()" mat-raised-button
+          color="accent">Close</a>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+</form>
