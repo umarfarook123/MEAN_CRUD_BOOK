@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 if (process.env.NODE_ENV == 'local' || process.env.NODE_ENV == 'undefined') {
   var config = require('./../config/local.js');
-  var DBconnection =config.DBconnection;
+  var DBconnection =config.DBconnection || "mongodb://localhost:27017/BOOKS";
   console.log(process.env.NODE_ENV,"DBconnection", DBconnection)
 
 
@@ -12,10 +12,12 @@ else {
 
 
   var config = require('./../config/prod.js');
-  var DBconnection =config.DBconnection;
+  var DBconnection =config.DBconnection || "mongodb://localhost:27017/BOOKS";
 
 
 }
+
+
 
 
 module.exports = config;
