@@ -97,12 +97,12 @@ exports.jwtSign = (adminId) => {
 
 exports.pagination = (data) => {
 
-    let { page, size, sortBy, orderBy, searchBy } = data;
+    let { page, pageSize, sortBy, orderBy, searchBy } = data;
 
-    page = Number(page), size = Number(size), orderBy = Number(orderBy);
+    page = Number(page), pageSize = Number(pageSize), orderBy = Number(orderBy);
 
-    var skip = isNaN(page * size) ? 0 : page * size;
-    var limit = size ? size : 10;
+    var skip = isNaN(page * pageSize) ? 0 : page * pageSize;
+    var limit = pageSize ? pageSize : 10;
     orderBy = orderBy ? orderBy : -1;
     var sort = !sortBy || sortBy == 'null' ? { _id: orderBy } : { [sortBy]: orderBy }
     let options = { sort, skip, limit }
@@ -376,12 +376,12 @@ exports.UserNameCheck = async (request, collection) => {
 
 exports.pagination = (data) => {
 
-    let { page, size, sortBy, orderBy, searchBy } = data;
+    let { page, pageSize, sortBy, orderBy, searchBy } = data;
 
-    page = Number(page), size = Number(size), orderBy = Number(orderBy);
+    page = Number(page), pageSize = Number(pageSize), orderBy = Number(orderBy);
 
-    var skip = isNaN(page * size) ? 0 : page * size;
-    var limit = size ? size : 10;
+    var skip = isNaN(page * pageSize) ? 0 : page * pageSize;
+    var limit = pageSize ? pageSize : 10;
     orderBy = orderBy ? orderBy : -1;
     var sort = !sortBy || sortBy == 'null' ? { _id: orderBy } : { [sortBy]: orderBy }
     let options = { sort, skip, limit }
