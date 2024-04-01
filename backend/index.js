@@ -14,7 +14,7 @@ if (process.env.NODE_ENV == 'local' || typeof process.env.NODE_ENV == 'undefined
     var config = require('./config/local.js');
     var http = require('http');
     var server = http.createServer(app);
-    var port = config.port;
+    var port = config.port || 1234;
 
 } else {
     var config = require('./config/prod.js');
@@ -23,7 +23,7 @@ if (process.env.NODE_ENV == 'local' || typeof process.env.NODE_ENV == 'undefined
         cert: fs.readFileSync(''),
     };
     var server = https.createServer(options, app);
-    var port = config.port;
+    var port = config.port || 1234;
 
 }
 
@@ -49,6 +49,11 @@ app.use(trimRequest.all);
 const passportConfig = require('./helpers/passport');
 app.use(passport.initialize());
 passportConfig(passport);
+
+app.get('/',(req,res)=>
+{
+    res.json("Backend is running on port " + port)
+})
 app.use('/', require('./routes/book.route.js'));
 
 
